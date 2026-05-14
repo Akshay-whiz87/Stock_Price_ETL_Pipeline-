@@ -1,0 +1,9 @@
+# Stock Price ETL Pipeline — Requirements
+# Install all with: pip install -r requirements.txt
+
+requests==2.31.0        # HTTP calls to Alpha Vantage API
+pandas==2.1.0           # Data manipulation and transformation
+numpy==1.25.0           # Numerical calculations (volatility etc.)
+apache-airflow==2.7.0   # Pipeline scheduling (optional for beginners)
+python-dotenv==1.0.0    # Load .env config file
+pytest==7.4.0           # Unit testing
