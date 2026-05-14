@@ -1,5 +1,4 @@
 # 📊 Stock Price ETL Pipeline
-## Complete Project Synopsis — Interview Ready
 
 ---
 
@@ -8,7 +7,6 @@
 
 ---
 
-## 📋 One-Line Summary (Say this in interview)
 > "I built an automated ETL pipeline that extracts daily stock price data from a financial API, cleans and enriches it with financial indicators like moving averages and volatility, loads it into a database, and schedules it to run every weekday automatically using Apache Airflow."
 
 ---
@@ -236,7 +234,7 @@ python src/main_pipeline.py
 
 ---
 
-## 🔄 How to Scale to Production (Tell interviewer this)
+## 🔄 How to Scale to Production 
 
 | Current (Dev) | Production Upgrade |
 |---------------|-------------------|
@@ -265,26 +263,3 @@ AMZN   | 2025-01-15 | 218.90 | 215.30 | 212.40 | BUY    | +0.92
 
 ---
 
-## ❓ Expected Interview Questions & Answers
-
-**Q: What is idempotency in a pipeline?**
-A: Running the pipeline multiple times produces the same result —
-   no duplicate data. I achieve this with INSERT OR REPLACE (UPSERT).
-
-**Q: How would you handle late-arriving data?**
-A: Allow reprocessing by date range. The UPSERT pattern handles
-   this — if data arrives late, re-running updates existing records.
-
-**Q: How do you ensure data quality?**
-A: 4 checks before loading — nulls, negative prices, High>=Low,
-   duplicate dates. Failed rows are logged, not silently dropped.
-
-**Q: How would you scale this pipeline?**
-A: Replace SQLite with Snowflake, use AWS S3 for raw storage,
-   add Airflow on managed AWS MWAA, process in parallel using
-   Airflow's TaskGroup for each symbol.
-
-**Q: What is a DAG in Airflow?**
-A: Directed Acyclic Graph — defines tasks and their dependencies.
-   In my pipeline: extract → transform → load → validate.
-   Acyclic means no circular dependencies — tasks flow one direction.
